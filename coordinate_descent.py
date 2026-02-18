@@ -40,7 +40,7 @@ class Optimizer:
             H = H_func(self.x)
             h_k = np.dot(grad_vec, grad_vec) / np.dot(H @ grad_vec, grad_vec)
 
-            self.x -= h_k * grad_vec
+            self.x[k%2] -= h_k * grad_vec[k%2]
 
             print(f"Новый шаг: {h_k}"
                   f"\nКоординаты нового вектора: {round(self.x[0], 3)} {round(self.x[1], 3)}"
